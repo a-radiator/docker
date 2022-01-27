@@ -1,0 +1,5 @@
+#Super Simple Image
+
+FROM Ubuntu
+CMD ["echo" ,"testing" ]
+

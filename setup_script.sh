@@ -5,7 +5,8 @@ apt update -y
 apt install ca-certificates curl gnupg lsb-release -y
 
 #install gpg key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /tmp/docker_key
+apt-key add /tmp/docker_key
 
 #install docker community edition
 apt install docker-ce docker-ce-cli containerd.io

@@ -10,5 +10,9 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -y
 #install docker community edition
 apt install docker-ce docker-ce-cli containerd.io
 
-#test
-docker run hello-world
+#build image 
+docker build -t hello-peak . 
+
+#run container
+docker run hello-peak
+

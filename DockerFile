@@ -1,5 +1,6 @@
 #Super Simple Image
 
 FROM workflow-python-v1
+RUN "Hello Peak" 
 CMD ["echo" ,"testing" ]
 

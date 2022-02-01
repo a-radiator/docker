@@ -1,5 +1,5 @@
 #Super Simple Image
 
-FROM Ubuntu
+FROM workflow-python-v1
 CMD ["echo" ,"testing" ]
 

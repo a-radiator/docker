@@ -9,7 +9,7 @@ apt upgrade -y
 apt install ca-certificates curl gnupg gnupg2 lsb-release apt-transport-https software-properties-common -y
 
 #add gpg key for docker
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -  >/dev/null
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -  
 
 #add apt repository
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"

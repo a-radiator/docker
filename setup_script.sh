@@ -21,4 +21,4 @@ apt install docker-ce docker-ce-cli containerd.io -y
 systemctl enable
 
 #test
-echo "success!" && systemctl enable --now docker && docker build -t hello-peak . && docker run hello-peak
+echo "success!" && systemctl start docker && docker build -t hello-peak . && docker run hello-peak

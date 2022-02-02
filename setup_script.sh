@@ -1,6 +1,8 @@
 #!/bin/bash
 apt update -y
 
+echo "test" 
+
 #install required packages for docker engine
 apt install ca-certificates curl gnupg lsb-release -y
 

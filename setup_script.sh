@@ -1,24 +1,23 @@
 #!/bin/bash
-lsb_release -cs 
 
 #install required packages for docker engine
-apt-get install ca-certificates curl gnupg lsb-release software-properties-common -y  
+apt-get install ca-certificates curl gnupg lsb-release software-properties-common apt-transport-https -y
 
-#install gpg key
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+#repo install
+echo "deb https://download.docker.com/linux/debian stretch stable" | tee /etc/apt/sources.list.d/docker.list
 
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+#key
+wget --quiet --output-document - https://download.docker.com/linux/debian/gpg  | sudo apt-key add - > /dev/null
+
+#clear
+apt-cache policy docker-ce docker-ce-cli
 
 #install docker community edition
 apt-get install docker-ce docker-ce-cli containerd.io -y
+apt-get update -y
 
-#build image 
-docker build -t hello-peak . 
-apt-get update -y 
+#build image
+docker build -t hello-peak .
 
 #run container
 docker run hello-peak
-
-

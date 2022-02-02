@@ -1,4 +1,5 @@
 #!/bin/bash
+lsb_release -cs 
 
 #install required packages for docker engine
 apt-get install ca-certificates curl gnupg lsb-release software-properties-common -y  

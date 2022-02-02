@@ -4,7 +4,7 @@ apt-get update -y
 echo "test" 
 
 #install required packages for docker engine
-apt-get install ca-certificates curl gnupg lsb-release -y software-properties-common
+apt-get install ca-certificates curl gnupg lsb-release software-properties-common -y  
 
 #install gpg key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o "/tmp/docker_key"

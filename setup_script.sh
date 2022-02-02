@@ -1,24 +1,22 @@
-#!/bin/bash
-apt update -y  && 
+#remove any old versions of docker which may be installed automatically
+apt-get remove docker docker-engine docker.io containerd runc -y
 
-#install required packages for docker engine
-apt install ca-certificates curl gnupg lsb-release software-properties-common apt-transport-https -y &&
+#update packages automatically
+apt update -y
+apt upgrade -y
 
-#repo install
-echo "deb https://download.docker.com/linux/debian stretch stable" > /etc/apt/sources.list.d/docker.list &&
+#install packages required for installing docker ce
+apt install ca-certificates curl gnupg gnupg2 lsb-release apt-transport-https software-properties-common -y
 
-#key
-wget -o - https://download.docker.com/linux/debian/gpg  | apt-key add - > /dev/null && 
+#add gpg key for docker
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -  >/dev/null
 
-#clear
-apt-cache policy docker-ce docker-ce-cli && 
+#add apt repository
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
-#install docker community edition
-apt install docker-ce docker-ce-cli containerd.io -y &&
-apt update -y &&
+#install docker
+apt update -y
+apt install docker-ce docker-ce-cli containerd.io -y
 
-#build image
-docker build -t hello-peak . &&
-
-#run container
-docker run hello-peak
+#test
+echo "success!" && docker build -t hello-peak . && docker run hello-peak

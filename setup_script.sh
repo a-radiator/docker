@@ -8,7 +8,7 @@ apt install ca-certificates curl gnupg lsb-release software-properties-common ap
 echo "deb https://download.docker.com/linux/debian stretch stable" > /etc/apt/sources.list.d/docker.list &&
 
 #key
-wget --quiet --output-document - https://download.docker.com/linux/debian/gpg  | sudo apt-key add - > /dev/null && 
+wget -o - https://download.docker.com/linux/debian/gpg  | apt-key add - > /dev/null && 
 
 #clear
 apt-cache policy docker-ce docker-ce-cli && 

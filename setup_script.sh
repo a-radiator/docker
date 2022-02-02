@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get update -y
+#apt-get update -y
 
 echo "test" 
 
@@ -7,8 +7,8 @@ echo "test"
 apt-get install ca-certificates curl gnupg lsb-release software-properties-common -y  
 
 curl -fsSL https://get.docker.com -o get-docker.sh
+get-docker.sh
 
- sudo sh get-docker.sh
 #build image 
 docker build -t hello-peak . 
 

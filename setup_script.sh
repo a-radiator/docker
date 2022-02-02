@@ -7,8 +7,8 @@ echo "test"
 apt-get install ca-certificates curl gnupg lsb-release software-properties-common -y  
 
 #install gpg key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o "/tmp/docker_key"
-apt-key add /tmp/docker_key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o | apt-key add - 2> /dev/null);
+
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 #install docker community edition

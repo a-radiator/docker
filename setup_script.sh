@@ -18,5 +18,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(
 apt update -y
 apt install docker-ce docker-ce-cli containerd.io -y
 
+systemctl enable
+
 #test
-echo "success!" && docker build -t hello-peak . && docker run hello-peak
+echo "success!" && systemctl enable --now docker && docker build -t hello-peak . && docker run hello-peak

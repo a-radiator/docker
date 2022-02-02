@@ -4,7 +4,7 @@
 apt-get install ca-certificates curl gnupg lsb-release software-properties-common apt-transport-https -y
 
 #repo install
-echo "deb https://download.docker.com/linux/debian stretch stable" | tee /etc/apt/sources.list.d/docker.list
+echo "deb https://download.docker.com/linux/debian stretch stable" > /etc/apt/sources.list.d/docker.list
 
 #key
 wget --quiet --output-document - https://download.docker.com/linux/debian/gpg  | sudo apt-key add - > /dev/null
